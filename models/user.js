@@ -24,6 +24,10 @@ const UserSchema = new Schema({
     type: String,
     required: false,
   },
+  acheivements: {
+    type: [String],
+    required: true
+  }
 });
 
 UserSchema.pre("save", async function (next) {

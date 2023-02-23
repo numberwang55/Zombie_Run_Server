@@ -3,7 +3,7 @@ const request = require("supertest");
 const app = require("../index");
 const users = require("../models/user");
 const runs = require("../models/run");
-
+const achievements = require("../models/achievements");
 require("dotenv").config();
 
 beforeEach(async () => {
@@ -16,6 +16,7 @@ beforeEach(async () => {
     name: "user1",
     password: "12345",
     profile_image_url: "",
+    acheivements: []
   });
   await runs.create({
     user_id: "263248919372",
@@ -24,7 +25,7 @@ beforeEach(async () => {
     created_at: new Date(Date.now()).toISOString(),
   });
 });
-
+  await achievements.create
 /* Closing database connection after each test. */
 afterAll(async () => {
   await mongoose.connection.close();
@@ -49,6 +50,7 @@ function runsByUserId(token) {
       return { body, token };
     });
 }
+
 
 describe("App", () => {
   describe("get /user", () => {
@@ -220,4 +222,6 @@ describe("App", () => {
       });
     });
   });
+  
+  
 });
