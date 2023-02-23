@@ -3,7 +3,6 @@ const request = require("supertest");
 const app = require("../index");
 const users = require("../models/user");
 const runs = require("../models/run");
-const achievements = require("../models/achievements");
 require("dotenv").config();
 
 beforeEach(async () => {
@@ -25,7 +24,6 @@ beforeEach(async () => {
     created_at: new Date(Date.now()).toISOString(),
   });
 });
-  await achievements.create
 /* Closing database connection after each test. */
 afterAll(async () => {
   await mongoose.connection.close();

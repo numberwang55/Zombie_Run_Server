@@ -26,8 +26,8 @@ const UserSchema = new Schema({
   },
   acheivements: {
     type: [String],
-    required: true
-  }
+    required: true,
+  },
 });
 
 UserSchema.pre("save", async function (next) {
